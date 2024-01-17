@@ -1,0 +1,247 @@
+<html>
+<head>
+    <title>Clinical Knowledge Management</title>
+    <link rel="stylesheet" href="style.css"></head>
+<body>
+    
+    <div>• <i>The Clinical Observations Access Service</i>(COAS) is a set of interfaces and data
+structures with which a server can supply clinical observations. It provides a
+variety of assessment mechanisms, so that complex clinical information can be
+efficiently searched and retrieved.<br><br>
+• <i>The Resource Access Decision</i> (RAD) Facility is a mechanism for obtaining
+authorization decisions and administrating access-decision policies.It establishes
+a common way for an application to request and receive an authorization decision.<br><br>
+•<i>The Clinical Image Access Service</i> (CIAS) is a set of interfaces and data structures
+with which a server can provide unified access to clinical images from DICOM or
+non-DICOM image sources. This specification utilizes and extends the COAS.<br><br><br>
+<i>OpenEMed</i> is a set of open-source components based on the aforementioned OMG
+specifications, HL7 and other data standards. The OpenEMed components are written
+in Java and target interoperable service functionality that reduces the time it takes to build
+HC related systems. It includes sample implementations of the PIDS, COAS, RAD, and
+the <i>Terminology Query</i> Service and requires CORBA infrastructure to run. OpenEMed
+also provides tools for assisting the healthcare application development, such as
+libraries providing persistence to a number of different databases, general GUI tools for
+managing XML driven interfaces, tools for handling SSL, and so on.<br>
+<i>DICOM.</i> The increased use of computer-based systems in medicine acknowledged the
+need for a standardized method to transfer images and the associated medical data among
+systems from different vendors. DICOM standard (DICOM P.S. 3.1, 2003) was developed
+based on this need. The goals of DICOM standard are the creation of an open
+environment among vendors, the interchange of medical images and related data, and the
+facilitation of interoperability among systems. DICOM standard concentrates on the
+
+following needs: digital image generation, digital transfer/archiving (PACS), post-
+processing of medical data, cross-vendor compatibility and communication via net-
+works/media as outlined in Gorissen’s presentation (1997).<br><br>
+
+In order to facilitate interoperability of medical-imaging equipment, DICOM specifies a
+set of network communication protocols, the syntax and semantics of commands and
+associated information which can be exchanged, a set of media storage services, a file
+format to facilitate access to the images and related information stored on media and
+information, that must be supplied with an implementation for which conformance to the
+standard is affirmed.<br><br><br>
+
+<center><h1><b><u>IT Related Standards, Architectures</b></u></h1><br></center>
+It’s not in the intentions of this chapter to provide an extensive reference to existing
+information technology architectures and standards. In the following paragraphs we will
+discuss both client/server and distributed architectures. We will also make a short
+reference to the most common ways of realizing distributed architecture: CORBA, DCOM,
+and XML Web Services.<br><br></div>
+    
+<div>In the <i>client/server</i> scenario we have two distinct parts: The server, where the database
+software is hosted and the clients where the application runs. The defining characteristic
+of this design as MacDonald identifies (2003, p. 6), is that “although the application is
+shared with multiple clients, it’s really the clients rather than the server that perform all
+the work”. The fallbacks of the client-server architecture (with respect to performance)
+are as follows: it can’t accommodate easy client interaction, it doesn’t allow for thin
+clients, there is a possibility for bottleneck on the server-side database, and in most cases
+the deployment is an important problem.<br>
+
+The basic concept behind <i>distributed applications</i> is that at least part of the function-
+ality runs remotely, as process in another computer. The client-side application commu-
+nicates with the remote components, sending instructions or retrieving information.
+
+Distributed architecture has some important advantages over the client/server architec-
+ture with more important the issue of scalability: new computers can be added providing
+
+additional computing power and stability because one computer can fail without
+derailing the entire application. Other advantages are the support to thin clients, the
+cross-platform code integration and the distributed transactions (MacDonald, 2003, pp.
+9-11).<br>
+During the last decade, evolution of both networking technologies and the structure of
+companies and organizations have led to the emergence of complex distributed systems
+consisting of diverse, discrete software modules that interoperate to perform some tasks.
+The interoperation of such remote modules has been achieved by <i>distributed object
+environments,</i> such as CORBA and DCOM. The vision behind such environments is that
+there is no distinction between local and remote objects, as seen from the programmer’s
+point of view. This is achieved in the case of CORBA by using the Object Request Broker
+(ORB), while in the case of DCOM using the windows infrastructure (that is the reason
+why CORBA is cross-platform in contradiction with DCOM that targets windows
+systems only).<br>
+In the last years, a new way of realizing the distributed architecture has been presented:
+“XML Web Services makes it easier for systems in different environments to exchange
+information through an interface (e.g., SOAP 1.2)” as noted in W3C’s “Web Services
+Activity Statement” (“Web Services Activity statement”, “Introduction” section). The
+power of Web services, in addition to their great interoperability and extensibility thanks
+to the use of XML, is that they can then be combined in a loosely-coupled way in order
+to achieve complex operations. Programs providing simple services can interact with
+each other in order to deliver sophisticated added-value services. The only assumption
+between the XML Web service client and the XML Web service is that recipients will
+understand the messages they receive. As a result, programs written in any language,
+using any component model, and running on any operating system can access XML Web
+services.<br>
+Security in <i>Web Services.</i> SOAP uses XML to specify remote method invocation calls,
+usually over HTTP. In such architecture an obvious security choice is to use <i>transport
+level</i> mechanisms provided by SSL/TLS or IPSec. However, these mechanisms
+do not provide complete protection especially for the next generation of Web services,
+which will be able to run on new protocols and which will include federated applications.
+In addition to the basic security requirements (confidentiality, integrity and authenticity<br><br>
+    </div>
+    <div>
+    of data exchanged), Web services require data validation, accountability, and distributed
+authentication and authorization, none of these being provided by SSL. These security
+requirements can be met with the use of the emerging XML security technologies
+(especially XML Signature, “XML-Signature Syntax and Processing”, 2002, and XML
+Encryption, “Encryption Syntax and Processing”, 2002), which apply security at the
+message layer of the Open Systems Interconnection (OSI) stack, providing end-to-end
+
+security in Web services environments. This security model is described in the WS-
+<i>Security Specification</i> version 1.0, launched by the <i>Organization for the Advancement
+
+of Structured Information Standards (OASIS)</i> Web Services Security TC in March 2004.
+This specification proposes a standard set of SOAP extensions that can be used when
+
+building secure Web services to implement message content integrity and confidenti-
+ality. The specification is flexible and is designed to be used as the basis for securing
+
+Web services within a wide variety of security models including Public Key Infrastruc-
+ture (PKI), Kerberos, and Secure Sockets Layer (SSL). For example, a PKI can be used to
+provide authentication, digital signatures, and key distribution.<br>
+<i>WS-Security Specification</i> version 1.0 has been the basis for the development of a
+complete security solution for future-proof Web services. IBM and Microsoft have
+collaborated to propose a <b>comprehensive</b> Web Services security plan and roadmap for
+developing a set of Web Service Security specifications that address security issues for
+messages exchanged in a Web service environment, in a compatible, extensible and
+interoperable manner. The proposed plan as presented (Security in a Web Services
+World, 2002) covers a wide range of security issues, namely: WS-Security, WS-Policy,
+WS-Trust, WS-Privacy, WS-Secure Conversation, and WS-Authorization.<br>
+
+<center><h1><u>Characteristics of Existing<br>
+HC Information Systems</u></h1></center>
+
+Current HC information systems are built using platform and device specific features,
+while the health domain concepts are hard-coded directly into the software and database
+models (Beale, 2002, p. 1). Moreover, they are characterized by limited support of global
+healthcare standards, the use of obsolete technologies and inflexible architecture design
+(de Velde, 2000, p. 1; Kuhn & Giuse, 2001, p. 66).<br>
+The shortcomings of such practices are especially evident in HC, where the total number
+of concepts and the observed rate of change are very high. Taking into account that, for
+example, a medical-classic term set, the SNOMED-CT, codes some 357,000 atomic
+concepts, one can only imagine the amount of work to be done in order to deliver robust
+healthcare applications, let alone the boom of cost in case of changes. Lenz and Kuhn
+(2004, p.1) report that this change can be brought by either internal causes, such as new
+diagnostic or therapeutic procedures or external, such as economic pressure. The
+inherent inflexibility results in limited application lifespan and overwhelming costs for
+the maintenance and extension of HC information systems.<br><br>
+Current systems are inadequately integrated into the established operational workflows
+and hospital procedures, minimizing user acceptance and delivered productivity. More-<br><br></div>
+    <div>over, inadequate use of global standards results in applications that exhibit limited
+interoperability, increasing the cost of intercommunication between heterogeneous HIS.
+Such a need is presented in the “Introduction” section of the ENV 12967.01 standard,
+where is identified that HC organizational structures usually consist of networks of HC
+centers distributed over the territory, characterized by a high degree of heterogeneity and
+diversity, from organizational, logistic, clinical and even cultural perspectives. The
+situation becomes even more complicated by the fact that a large number of isolated and
+incompatible applications are already installed and operational in many healthcare
+organizations, satisfying specific user needs as Kuhn and Giuse report (2002, p.66).<br><br>
+Kuhn and Giuse (2002, pp. 65-67) affirm that HIS at the majority of institutions today are
+far from the stated goals of supporting HC. Several problems contribute to this situation:
+Questions concerning integration and data input are still unsolved, the market remains
+volatile and few successful systems have been deployed, it is difficult to demonstrate
+return on investment while health IT departments lack adequate financial support and
+there seem to be more failures and concrete difficulties than success stories suggest.<br><br>
+    
+    <center><h1><b><u>The Need for HIS<br>
+Application Frameworks</u></b></h1></center>
+
+A crucial challenge for building applications for the health domain is that the number of
+the concepts that should be covered is very large and that each individual concept can
+be quite complex, as Beale, Goodchild and Heard identify (2002). Furthermore, health data
+should be available to process at the semantic level in order to empower decision support
+and evidence-based medicine. Finally, all these requirements should be satisfied in a
+cost-effective manner that does not overburden the budget of HC providers.<br>
+Before proposing ways to meet the challenge of developing applications for HIS, it’s
+useful to see the bigger picture of HIS. HISA distinguishes three layers within a HIS: the
+Bitways layer (infrastructure), the Middleware of common services layer and the
+<i>Applications</i> layer. Such an approach fits nicely with the current situation where many
+HIS are comprised of many specialized applications or even sub- systems dedicated to
+specific areas such as outpatient scheduling, billing, ward management, Radiology
+Information Systems (RIS), Laboratory Information Systems (LIS), and so on. Even if
+some common services are treated inside a sub system, it is not inhibitory to realize the
+above HIS architecture, as long as the <i>middleware of common services</i> provides them.<br>
+Within the <i>Applications layer</i> reside concept-specific applications, providing the
+necessary interface for the users in order to insert or view data, generate reports,
+documents, and so on. A plethora of such applications is either available on the market
+or custom-developed. Usually, these applications are stand-alone and the usual practice
+in order to intercommunicate with other applications within the HIS is to provide a
+“bridge” to the “outside world”. In the best-case scenario, such applications use a
+standard protocol (e.g., version 2.x HL7 messages), or a custom-made protocol mutually
+accepted within the scope of HIS.<br><br></div>
+    <div>
+    In order to develop HIS we need: the development of the Bitways layer (infrastructure),
+the development of the <i>middleware of common services</i> and the development of the
+applications located in the <i>Applications</i> layer. As far as the <i>middleware of common
+services</i> is concerned, a lot of work has been done both for standardization (e.g., CEN’s
+work on the architecture specification, OMG’s work on the <i>common services</i> interfaces
+specifications, HL7’s work on defining messages to be exchanged within the HIS), and
+software development (<i>e.g., DHE, and OpenEMed</i>).<br>
+What seems to be missing is the means to create applications for a HIS. That’s partially
+
+true since there are strong and very popular development tools for all kinds of applica-
+tions: windows, Web or even smart-phone applications. Development environments/
+
+platforms like .net, Java, win32 as well as development suites targeting those environ-
+ments like Microsoft’s Visual Studio, Borland’s Delphi, JBuilder, Eclipse, and so on, are
+
+only some of the means currently available for delivering useful, well-designed and
+functional applications. However, these are mainly <i>Rapid Application Development</i>
+(RAD) tools for generic purposes. There are no domain-specific development tools
+available today, which is to say that the idea of Application Frameworks for HC is not
+widespread. <i>In order not to reinvent the wheel</i> (in terms of the HIS applications
+development and HC in general), <b>the software industry can tremendously benefit from
+the work done so far in the area of the HC informatics standardization, in order to provide
+HC-specific Application Frameworks (to be used by RAD tools) that will make software
+development easier and more efficient.</b> For the purposes of this chapter, we will
+concentrate only on <i>Application Frameworks for HIS;</i> adopting <i>HISA’s</i> perspective
+namely that <i>HISA</i> targets any type of HC organization.<br>
+The main features of such an Application Framework for HIS should be:<br><br>
+• The ability to design and build highly customizable and adaptive applications;<br>
+• The inherent support of global healthcare standards, such as HL7, DICOM, and
+so on; and<br>
+• The inherent support of open standards and interoperable protocols, such as XML
+and SOAP.<br><br>
+In order to achieve the first goal, an approach like the one <i>openEHR</i> (Beale, 2002), is
+evangelizing might be very useful: “separation of knowledge and information levels in
+information systems”. Actually, we go a little further: data concepts, business rules and
+workflow, as well as user interfaces should not be hard- coded in the applications
+produced. Key consequence of such a practice is that software and data depend only on
+small, non-volatile models. Applications can thus be developed and deployed quickly,
+even without waiting for the knowledge concepts to be thoroughly defined. Such an
+approach is closer to today’s design of information systems practice that as Kuhn and
+Giuse (2002, p. 71) say “...is moving from completely modelling a system before
+implementing it, to interactive rapid prototyping”. This methodology also, allows new
+
+or modified domain concepts, changes in operational workflows (e.g., hospital proce-
+dures), or changes in security/privacy policy rules, to be quickly and seamlessly
+
+integrated at a low cost without major software recompilation and user annoyance or
+ideally without any recompilation of the code.</div>
+    
+    
+    
+    
+    
+    
+    </body>
+
+
+</html>
